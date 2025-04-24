@@ -1,0 +1,244 @@
+﻿<Application x:Class="WpfApp.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:WpfApp"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+
+        <!-- Глобальные цвета -->
+        <!-- Основной цвет кнопок -->
+        <SolidColorBrush x:Key="PrimaryColor">
+            <SolidColorBrush.Color>
+                <Color>#D6B55A</Color>
+            </SolidColorBrush.Color>
+        </SolidColorBrush>
+
+        <!-- Вторичный цвет кнопок -->
+        <SolidColorBrush x:Key="SecondaryColor">
+            <SolidColorBrush.Color>
+                <Color>#D6C085</Color>
+            </SolidColorBrush.Color>
+        </SolidColorBrush>
+
+        <!-- Цвет фона -->
+        <SolidColorBrush x:Key="BackgroundColor">
+            <SolidColorBrush.Color>
+            <Color >#F2EAD3</Color>
+            </SolidColorBrush.Color>
+        </SolidColorBrush>
+
+        <!-- Светлый цвет фона -->
+        <SolidColorBrush x:Key="LightBackgroundColor">
+            <SolidColorBrush.Color>
+            <Color >#FCF8EB</Color>
+            </SolidColorBrush.Color>
+        </SolidColorBrush>
+
+        <!-- Цвет фона кнопки справка-->
+        <SolidColorBrush x:Key="BtnHelpColor">
+            <SolidColorBrush.Color>
+                <Color>#1456B8</Color>
+            </SolidColorBrush.Color>
+        </SolidColorBrush>
+
+        <!-- Очень светлый цвет фона - для TextBox-->
+        <SolidColorBrush x:Key="UltraLightBackgroundColor">
+            <SolidColorBrush.Color>
+                <Color >#FFFBF0</Color>
+            </SolidColorBrush.Color>
+        </SolidColorBrush>
+
+        <!--  Цвет текста -->
+        <SolidColorBrush x:Key="ForegroundTextColor">
+            <SolidColorBrush.Color>
+                <Color >#333333</Color>
+            </SolidColorBrush.Color>
+        </SolidColorBrush>
+
+        <!-- Цвет границ -->
+        <SolidColorBrush x:Key="BorderColor">
+            <SolidColorBrush.Color>
+                <Color>#CCCCCC</Color>
+            </SolidColorBrush.Color>
+        </SolidColorBrush>
+
+        <!-- Цвет выделенных границ -->
+        <SolidColorBrush x:Key="BtnBorderColor">
+            <SolidColorBrush.Color>
+                <Color>#B3974B</Color>
+            </SolidColorBrush.Color>
+        </SolidColorBrush>
+
+
+        <!-- Более светлый оттенок серого для выделения -->
+        <SolidColorBrush x:Key="HighlightColor">
+            <SolidColorBrush.Color>
+                <Color>#F2F0E9</Color>
+            </SolidColorBrush.Color>
+        </SolidColorBrush>
+
+        
+
+        <!-- Стиль для окон -->
+        <Style TargetType="{x:Type Window}">
+            <Setter Property="Background" Value="{StaticResource BackgroundColor}" />
+            <Setter Property="Foreground" Value="{StaticResource ForegroundTextColor}" />
+            <Setter Property="BorderBrush" Value="{StaticResource BorderColor}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="FontFamily" Value="Segoe UI" />
+        </Style>
+
+        <!-- Стиль для TabControl -->
+        <Style TargetType="TabControl">
+            <Setter Property="Background" Value="{StaticResource BackgroundColor}" />
+            <Setter Property="BorderBrush" Value="{StaticResource BorderColor}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Padding" Value="5" />
+        </Style>
+
+        <!-- Стиль для TabItem -->
+        <Style TargetType="{x:Type TabItem}">
+            <Setter Property="Background" Value="{StaticResource LightBackgroundColor}" />
+            <Setter Property="Foreground" Value="{StaticResource ForegroundTextColor}" />
+            <Setter Property="BorderBrush" Value="{StaticResource BorderColor}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Padding" Value="5, 5" />
+        </Style>
+
+
+        <!-- Стиль для TextBox просмотра и редактирования файла-->
+        <Style x:Key="FileViewer" TargetType="TextBox">
+            <Setter Property="Foreground" Value="{StaticResource ForegroundTextColor}" />
+            <Setter Property="Background" Value="{StaticResource HighlightColor}"/>
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Margin" Value="0" />
+            <Setter Property="Padding" Value="5, 10" />
+            <Setter Property="BorderThickness" Value="0" />
+        </Style>
+        
+        <!-- Стиль для StackPanel с кнопками -->
+        <Style x:Key="Buttons" TargetType="StackPanel">
+            <Setter Property="Margin" Value="0, 30" />
+        </Style>
+
+        <!-- Стиль для основных кнопок-->
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="{StaticResource SecondaryColor}" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Padding" Value="10, 5, 10, 5" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center"  />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate  TargetType="{x:Type Button}">
+                        <Border x:Name="border"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="1"
+                                Padding="{TemplateBinding Padding }"
+                                VerticalAlignment="Center">
+                            <ContentPresenter x:Name="contentPresenter"
+                                                ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                Content="{TemplateBinding Content}"
+                                                ContentStringFormat="{TemplateBinding Content }"
+                                                Margin="0"/>
+                </Border>
+                <ControlTemplate.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Opacity" TargetName="border" Value="0.8"/>
+                    </Trigger>
+                    <Trigger Property="IsPressed" Value="True">
+                        <Setter Property="Opacity" TargetName="border" Value="0.6"/>
+                    </Trigger>
+                    <Trigger Property="IsEnabled" Value="False">
+                        <Setter Property="Opacity" TargetName="border" Value="0.5"/>
+                    </Trigger>
+                    <Trigger Property="IsKeyboardFocused" Value="True">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource BtnBorderColor}"/>
+                        <Setter Property="BorderThickness" TargetName="border" Value="2"/>
+                    </Trigger>
+                </ControlTemplate.Triggers>
+            </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Стиль для Primary Button -->
+        <Style x:Key="PrimaryBtn" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+            <Setter Property="Background" Value="{StaticResource PrimaryColor}" />
+        </Style>
+
+        <!-- Стиль для кнопки справки-->
+        <Style x:Key="HelpBtn" TargetType="Button">
+            <Setter Property="Background" Value="{StaticResource BtnHelpColor}" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate  TargetType="{x:Type Button}">
+                        <Border x:Name="border"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="20"
+                    Padding="{TemplateBinding Padding }"
+                    VerticalAlignment="Center">
+                            <ContentPresenter x:Name="contentPresenter"
+                                    ContentTemplate="{TemplateBinding ContentTemplate}"
+                                    Content="{TemplateBinding Content}"
+                                    ContentStringFormat="{TemplateBinding Content }"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" TargetName="border" Value="0.8"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Opacity" TargetName="border" Value="0.6"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Стиль для DataGrid -->
+        <Style TargetType="DataGrid">
+            <Setter Property="Background" Value="{StaticResource BackgroundColor}" />
+            <Setter Property="HeadersVisibility" Value="Column" />
+            <Setter Property="AutoGenerateColumns" Value="False" />
+        </Style>
+
+        <Style TargetType="DataGridColumnHeader">
+            <Setter Property="Background" Value="{StaticResource PrimaryColor}" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="BorderBrush" Value="{StaticResource BorderColor}" />
+            <Setter Property="BorderThickness" Value="0,0,1,1" />
+            <Setter Property="Padding" Value="5, 0, 0, 0"/>
+        </Style>
+
+        <Style TargetType="DataGridRow">
+            <Setter Property="Background" Value="{StaticResource UltraLightBackgroundColor}" />
+            <Setter Property="Foreground" Value="{StaticResource ForegroundTextColor}" />
+        </Style>
+
+        <Style TargetType="DataGridCell">
+            <Setter Property="Padding" Value="5" />
+        </Style>
+
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="20,0,0,10"/>
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="Background" Value="{StaticResource UltraLightBackgroundColor}" />
+            <Setter Property="Foreground" Value="{StaticResource ForegroundTextColor}" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+    
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="Margin" Value="0,0,0,10"/>
+        </Style>
+    </Application.Resources>
+</Application>
