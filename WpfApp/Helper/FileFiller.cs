@@ -79,7 +79,7 @@ namespace WpfApp.FileHelper
                 {
                     for (int j = 0; j < initialData.dimension; j++)
                     {
-                        sw.Write($"{initialData.B[i, j]} ");
+                        sw.Write($"{initialData.B[i, j]}\t");
                     }
                     sw.WriteLine();
                 }
