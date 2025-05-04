@@ -138,7 +138,7 @@ namespace WpfApp.FileHelper
                 new LineSeries
                 {
                     Title = "Сортированный Y",
-                    Values = VmMainW.ListY.Select(r => r.y).AsChartValues(),
+                    Values = VmMainW.ListSortY.Select(r => r.y).AsChartValues(),
                 }
             };
 
